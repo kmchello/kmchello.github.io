@@ -414,3 +414,14 @@ body.detail-open .arrow{display:none}
 /* ----- 작업 영상 ----- */
 .detail .g-wide .shot.video{height:auto;aspect-ratio:16/9;background:#000;border-radius:6px}
 .shot.video>video{position:absolute;inset:0;width:100%;height:100%;display:block;border-radius:inherit;background:#000;object-fit:contain}
+
+/* ----- 상세 페이지: 제목이 있는 구역 (앱 / 캐릭터 / 웹 / 영상) ----- */
+.d-groups{display:block}
+.grp{margin-top:140px;padding-top:60px;border-top:1px solid var(--hair)}
+.grp .g-head{margin-bottom:64px}
+.grp .d-label{margin-bottom:20px}
+.g-title{margin:0;font:800 68px/80px 'Noto Sans KR',sans-serif;letter-spacing:-.04em}
+.g-desc{margin-top:18px;font:500 22px/34px 'Noto Sans KR',sans-serif;color:var(--lite);max-width:900px}
+.g-list{display:grid;row-gap:96px}
+.g-list .shot{height:840px;border-radius:6px}
+.detail .g-list .shot.video{height:auto;aspect-ratio:16/9;background:#000}

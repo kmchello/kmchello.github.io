@@ -351,14 +351,26 @@
       imgs: {
         list: ['assets/work/zalgagye/web-home.jpg'],
         hero: 'assets/work/zalgagye/web-home.jpg',
-        shots: [
-          { src: 'assets/work/zalgagye/app-screens.jpg?v=2', cap: 'APP  앱 디자인 · 시작과 연결 찾기' },
-          { src: 'assets/work/zalgagye/app-screens-2.jpg', cap: 'APP  앱 디자인 · 상대 초대, 중재자 선택, 홈' },
-          { src: 'assets/work/zalgagye/web-chars.jpg', cap: 'CHARACTER  캐릭터 디자인' },
-          { src: 'assets/work/zalgagye/web-design.jpg', cap: 'WEB  웹 디자인 · 정산소 설계서' },
-          { src: 'assets/work/zalgagye/web-making.jpg', cap: 'WEB  웹 디자인 · 정산소 제작서' },
-          { src: 'assets/work/zalgagye/web-video.jpg', cap: 'WEB  웹 디자인 · 정산소 상영관' },
-          { video: 'assets/work/zalgagye/goodbye.mp4', src: 'assets/work/zalgagye/video-poster.jpg', cap: 'VIDEO  영상 · 잘가계 소개 영상' }
+        // groups: 상세 페이지에서 제목이 있는 구역으로 나뉘어 보입니다 [{label, title, desc, items:[{src, cap} 또는 {video, src(포스터), cap}]}]
+        groups: [
+          { label: 'APP', title: '앱 디자인', desc: '온보딩부터 홈, 미정산, 중재방, 정산완, 마이까지 앱의 주요 화면입니다.',
+            items: [
+              { src: 'assets/work/zalgagye/app-screens.jpg?v=3', cap: '온보딩 ①  시작에서 연결 찾기까지' },
+              { src: 'assets/work/zalgagye/app-screens-2.jpg?v=3', cap: '온보딩 ②  함께 쓴 흔적 발견에서 시작 완료까지' },
+              { src: 'assets/work/zalgagye/app-screens-3.jpg?v=3', cap: '홈 · 미정산' },
+              { src: 'assets/work/zalgagye/app-screens-4.jpg?v=3', cap: '중재방' },
+              { src: 'assets/work/zalgagye/app-screens-5.jpg?v=3', cap: '정산완 · 마이' }
+            ] },
+          { label: 'CHARACTER', title: '캐릭터 디자인', desc: '정리를 대신 전해 주는 네 명의 중재자 캐릭터입니다.',
+            items: [{ src: 'assets/work/zalgagye/web-chars.jpg', cap: '정산소 자료함 · 캐릭터 이미지' }] },
+          { label: 'WEB', title: '웹 디자인', desc: '잘가계 정산소 웹사이트의 화면입니다.',
+            items: [
+              { src: 'assets/work/zalgagye/web-design.jpg', cap: '정산소 설계서' },
+              { src: 'assets/work/zalgagye/web-making.jpg', cap: '정산소 제작서' },
+              { src: 'assets/work/zalgagye/web-video.jpg', cap: '정산소 상영관' }
+            ] },
+          { label: 'VIDEO', title: '영상', desc: '잘가계 소개 영상입니다. (44초)',
+            items: [{ video: 'assets/work/zalgagye/goodbye.mp4', src: 'assets/work/zalgagye/video-poster.jpg', cap: '잘가계 소개 영상' }] }
         ]
       } },
     tensec: { title: '10초', cat: 'UIUX', kind: 'app', type: '조기퇴직 해결 앱',
@@ -421,11 +433,25 @@
   const dHeroBig = dstage.querySelector('.ph.big'), dPhones = dstage.querySelector('.d-phones');
   const dApp = dstage.querySelector('.g-app'), dWide = dstage.querySelector('.g-wide');
   const dDefault = { app: dApp.innerHTML, wide: dWide.innerHTML, phones: dPhones.innerHTML, hero: dHeroBig.innerHTML };
+  const dShots = dstage.querySelector('.s-shots'), dGroups = $('d-groups');
+  const grpIO = 'IntersectionObserver' in window
+    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); grpIO.unobserve(e.target); } }), { root: detail, threshold: 0.06 })
+    : null;
+  function groupHTML(g) {                                    // 제목이 있는 한 구역 (앱 / 캐릭터 / 웹 / 영상)
+    return '<section class="sec grp"><div class="g-head"><p class="d-label">' + g.label + '</p><h3 class="g-title">' + g.title + '</h3>' +
+      (g.desc ? '<p class="g-desc">' + g.desc + '</p>' : '') + '</div><div class="g-list">' + g.items.map(shotHTML).join('') + '</div></section>';
+  }
   function fillImages(w) {                                   // 상세 페이지는 틀을 같이 쓰므로 매번 처음 상태로 되돌린 뒤 채웁니다
     dApp.innerHTML = dDefault.app; dWide.innerHTML = dDefault.wide;
     dPhones.innerHTML = dDefault.phones; dHeroBig.innerHTML = dDefault.hero; dHeroBig.classList.remove('has-img');
+    dGroups.innerHTML = ''; dShots.style.display = '';
     const im = w.imgs;
     if (!im) return;
+    if (im.groups && im.groups.length) {
+      dShots.style.display = 'none';                         // 구역으로 나눈 작업은 기본 '화면' 목록을 감춥니다
+      dGroups.innerHTML = im.groups.map(groupHTML).join('');
+      dGroups.querySelectorAll('.grp').forEach(g => { if (grpIO) grpIO.observe(g); else g.classList.add('seen'); });
+    }
     if (im.hero) putImg(dHeroBig, im.hero, w.title);
     if (im.phones) dPhones.querySelectorAll('.shot').forEach((sh, i) => { if (im.phones[i]) putImg(sh, im.phones[i], w.title); });
     if (im.shots && im.shots.length) (w.kind === 'app' ? dApp : dWide).innerHTML = im.shots.map(shotHTML).join('');

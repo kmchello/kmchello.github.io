@@ -356,7 +356,7 @@
           { src: 'assets/work/zalgagye/web-chars.jpg', cap: 'CHARACTER  캐릭터 디자인' },
           { src: 'assets/work/zalgagye/web-design.jpg', cap: 'WEB  웹 디자인 · 정산소 설계서' },
           { src: 'assets/work/zalgagye/web-making.jpg', cap: 'WEB  웹 디자인 · 정산소 제작서' },
-          { src: 'assets/work/zalgagye/web-video.jpg', cap: 'VIDEO  영상 · 정산소 상영관' }
+          { video: 'assets/work/zalgagye/goodbye.mp4', src: 'assets/work/zalgagye/video-poster.jpg', cap: 'VIDEO  영상 · 잘가계 소개 영상' }
         ]
       } },
     tensec: { title: '10초', cat: 'UIUX', kind: 'app', type: '조기퇴직 해결 앱',
@@ -402,6 +402,10 @@
     shot.classList.add('has-img');
   }
   function shotHTML(s) {
+    if (s.video) {                                           // 영상은 눌러서 재생 (소리는 사용자가 켭니다)
+      return '<div class="shot has-img video"><video src="' + s.video + '" poster="' + (s.src || '') + '" controls playsinline preload="none" controlslist="nodownload"></video>' +
+        (s.cap ? '<span class="cap">' + s.cap + '</span>' : '') + '</div>';
+    }
     return '<div class="shot has-img"><img src="' + s.src + '" alt="' + (s.cap || '') + '" loading="lazy" draggable="false">' +
       (s.cap ? '<span class="cap">' + s.cap + '</span>' : '') + '</div>';
   }
@@ -471,6 +475,7 @@
   function closeDetail(restoreHash) {
     if (!detailOpen) return;
     detailOpen = false;
+    dstage.querySelectorAll('video').forEach(v => v.pause());   // 닫을 때 재생 중인 영상은 멈춥니다
     document.body.classList.remove('detail-open');
     detail.setAttribute('aria-hidden', 'true');
     detail.classList.remove('open');

@@ -345,7 +345,20 @@
   /* ----- 작업 상세 (서브페이지) -----
      WORK 의 작업을 누르면 상세 화면이 옆에서 들어오고, 걸려 있던 이미지가 흔들리며 자리를 잡습니다. */
   const WORKS = {
-    zalgagye: { title: '잘가계', cat: 'APP, WEB, VIDEO', type: '졸업작품', kind: 'wide' },
+    // imgs: list = WORK 목록 화면(앱은 3장, 가로형은 1장), hero = 상세 맨 위 큰 이미지(가로형),
+    //       phones = 상세 맨 위 폰 5장(앱), shots = 상세 '화면' 갤러리 [{src, cap}]
+    zalgagye: { title: '잘가계', cat: 'APP, WEB, VIDEO', type: '졸업작품', kind: 'wide',
+      imgs: {
+        list: ['assets/work/zalgagye/web-home.jpg'],
+        hero: 'assets/work/zalgagye/web-home.jpg',
+        shots: [
+          { src: 'assets/work/zalgagye/app-screens.jpg', cap: 'APP  앱 디자인' },
+          { src: 'assets/work/zalgagye/web-chars.jpg', cap: 'CHARACTER  캐릭터 디자인' },
+          { src: 'assets/work/zalgagye/web-design.jpg', cap: 'WEB  웹 디자인 · 정산소 설계서' },
+          { src: 'assets/work/zalgagye/web-making.jpg', cap: 'WEB  웹 디자인 · 정산소 제작서' },
+          { src: 'assets/work/zalgagye/web-video.jpg', cap: 'VIDEO  영상 · 정산소 상영관' }
+        ]
+      } },
     tensec: { title: '10초', cat: 'UIUX', kind: 'app', type: '조기퇴직 해결 앱',
       stuck: '기획이 바뀌어 막바지에 전부 다시 만들었습니다. 어울리지 않는 색을 감으로 더하다 화면이 어수선해지기도 했습니다.',
       role: '걸고 빼기', roleLine: '기획이 바뀌어 통째로 엎었던 작업입니다.' },
@@ -377,9 +390,44 @@
   const seenIO = 'IntersectionObserver' in window
     ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('seen'); }), { root: detail, threshold: 0.12 })
     : null;
+  /* ----- 이미지 넣기 -----
+     imgs 가 있는 작업만 이미지를 넣고, 없는 작업은 IMAGE 자리표시를 그대로 둡니다. */
+  function putImg(shot, src, alt) {
+    const sp = shot.querySelector('span');
+    if (sp) sp.hidden = true;
+    let img = shot.querySelector('img');
+    if (!img) { img = document.createElement('img'); img.draggable = false; shot.appendChild(img); }
+    img.alt = alt || '';
+    img.src = src;
+    shot.classList.add('has-img');
+  }
+  function shotHTML(s) {
+    return '<div class="shot has-img"><img src="' + s.src + '" alt="' + (s.cap || '') + '" loading="lazy" draggable="false">' +
+      (s.cap ? '<span class="cap">' + s.cap + '</span>' : '') + '</div>';
+  }
+  Object.keys(WORKS).forEach(id => {                       // WORK 목록의 이미지
+    const w = WORKS[id], list = w.imgs && w.imgs.list;
+    if (!list) return;
+    const art = document.querySelector('.case[data-work="' + id + '"]');
+    if (!art) return;
+    art.querySelectorAll('.frames .shot').forEach((sh, i) => { if (list[i]) putImg(sh, list[i], w.title); });
+  });
+  const dHeroBig = dstage.querySelector('.ph.big'), dPhones = dstage.querySelector('.d-phones');
+  const dApp = dstage.querySelector('.g-app'), dWide = dstage.querySelector('.g-wide');
+  const dDefault = { app: dApp.innerHTML, wide: dWide.innerHTML, phones: dPhones.innerHTML, hero: dHeroBig.innerHTML };
+  function fillImages(w) {                                   // 상세 페이지는 틀을 같이 쓰므로 매번 처음 상태로 되돌린 뒤 채웁니다
+    dApp.innerHTML = dDefault.app; dWide.innerHTML = dDefault.wide;
+    dPhones.innerHTML = dDefault.phones; dHeroBig.innerHTML = dDefault.hero; dHeroBig.classList.remove('has-img');
+    const im = w.imgs;
+    if (!im) return;
+    if (im.hero) putImg(dHeroBig, im.hero, w.title);
+    if (im.phones) dPhones.querySelectorAll('.shot').forEach((sh, i) => { if (im.phones[i]) putImg(sh, im.phones[i], w.title); });
+    if (im.shots && im.shots.length) (w.kind === 'app' ? dApp : dWide).innerHTML = im.shots.map(shotHTML).join('');
+  }
   function fillDetail(id) {
     const w = WORKS[id];
     detail.classList.toggle('app', w.kind === 'app');      // 앱 작업은 세로형 화면, 그 외는 가로형 화면
+    fillImages(w);
     $('d-title').textContent = w.title;
     $('d-cat').textContent = w.cat;
     $('d-type').textContent = w.type || TBD;

@@ -352,10 +352,12 @@
         list: ['assets/work/zalgagye/web-home.jpg'],
         hero: 'assets/work/zalgagye/web-home.jpg',
         shots: [
-          { src: 'assets/work/zalgagye/app-screens.jpg', cap: 'APP  앱 디자인' },
+          { src: 'assets/work/zalgagye/app-screens.jpg?v=2', cap: 'APP  앱 디자인 · 시작과 연결 찾기' },
+          { src: 'assets/work/zalgagye/app-screens-2.jpg', cap: 'APP  앱 디자인 · 상대 초대, 중재자 선택, 홈' },
           { src: 'assets/work/zalgagye/web-chars.jpg', cap: 'CHARACTER  캐릭터 디자인' },
           { src: 'assets/work/zalgagye/web-design.jpg', cap: 'WEB  웹 디자인 · 정산소 설계서' },
           { src: 'assets/work/zalgagye/web-making.jpg', cap: 'WEB  웹 디자인 · 정산소 제작서' },
+          { src: 'assets/work/zalgagye/web-video.jpg', cap: 'WEB  웹 디자인 · 정산소 상영관' },
           { video: 'assets/work/zalgagye/goodbye.mp4', src: 'assets/work/zalgagye/video-poster.jpg', cap: 'VIDEO  영상 · 잘가계 소개 영상' }
         ]
       } },

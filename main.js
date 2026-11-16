@@ -347,7 +347,23 @@
   const WORKS = {
     // imgs: list = WORK 목록 화면(앱은 3장, 가로형은 1장), hero = 상세 맨 위 큰 이미지(가로형),
     //       phones = 상세 맨 위 폰 5장(앱), shots = 상세 '화면' 갤러리 [{src, cap}]
+    // tools: [{name, icon, level(사용 빈도 0~100), fill(어도비처럼 아이콘이 이미 둥근 타일이면 true), off(true면 흐리게 비활성 표시)}]
+    // team:  [{role, names}]  — 글 한 줄이면 문자열로 적어도 됩니다
     zalgagye: { title: '잘가계', cat: 'APP, WEB, VIDEO', type: '졸업작품', kind: 'wide',
+      desc: '“헤어졌는데, 같이 쓰던 건 누가 정리하지?”라는 질문에서 시작한 이별 후 오프보딩 서비스입니다. 공동 계정부터 공유 앨범까지, 얽혀 있던 디지털 자산을 서로 다치지 않게 나누도록 네 명의 캐릭터 중재자가 대신 말을 전합니다. 기획부터 캐릭터와 앱 디자인, 모션그래픽, 웹사이트까지 팀 Layer가 함께 만든 졸업작품입니다.',
+      tools: [
+        { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
+        { name: 'Claude', icon: 'assets/icons/claude.svg', level: 90 },
+        { name: 'ChatGPT', icon: 'assets/icons/chatgpt.svg', level: 85 },
+        { name: 'Photoshop', off: true, icon: 'assets/icons/photoshop.svg', level: 60, fill: true },
+        { name: 'Illustrator', off: true, icon: 'assets/icons/illustrator.svg', level: 55, fill: true },
+        { name: 'Premiere Pro', off: true, icon: 'assets/icons/premiere.svg', level: 45, fill: true },
+        { name: 'After Effects', off: true, icon: 'assets/icons/aftereffects.svg', level: 40, fill: true }
+      ],
+      team: [
+        { role: '기획', names: '곽효진, 이수영' },
+        { role: '디자인', names: '김민찬, 김태현, 정희윤, 조태희' }
+      ],
       imgs: {
         list: ['assets/work/zalgagye/web-home.jpg'],
         hero: 'assets/work/zalgagye/web-home.jpg',
@@ -393,6 +409,23 @@
   const detailSecs = [...detail.querySelectorAll('.sec')];
   let detailTimer = 0;
   const TBD = '작성 예정';
+  // 사용 도구: 아이콘 + 이름 + 사용 빈도 게이지 (글 한 줄이면 그대로 글로 보입니다)
+  function setTools(list) {
+    const el = $('d-tools');
+    if (!Array.isArray(list) || !list.length) { setText('d-tools', Array.isArray(list) ? '' : list); return; }
+    el.classList.remove('empty');
+    el.innerHTML = '<ul class="tools">' + list.map(t =>
+      '<li' + (t.off ? ' class="off"' : '') + '><span class="ti' + (t.fill ? ' fill' : '') + '"><img src="' + t.icon + '" alt="" draggable="false"></span>' +
+      '<span class="tn">' + t.name + '</span>' +
+      '<span class="gauge" role="img" aria-label="사용 빈도 ' + t.level + '%"><i style="--lv:' + t.level + '%"></i></span></li>').join('') +
+      '</ul><p class="tools-note">막대는 사용 빈도입니다.</p>';
+  }
+  function setTeam(list) {
+    const el = $('d-team');
+    if (!Array.isArray(list) || !list.length) { setText('d-team', Array.isArray(list) ? '' : list); return; }
+    el.classList.remove('empty');
+    el.innerHTML = '<ul class="team">' + list.map(m => '<li><b>' + m.role + '</b><span>' + m.names + '</span></li>').join('') + '</ul>';
+  }
   function setText(id, v) { const el = $(id); el.textContent = v || TBD; el.classList.toggle('empty', !v); }
   // 화면 폭에 맞춰 줄어든 만큼 페이지 높이도 줄여서, 끝까지 정확히 스크롤되게 합니다
   function fitDetail() {
@@ -465,8 +498,8 @@
     $('d-type').textContent = w.type || TBD;
     $('d-period').textContent = TBD;
     setText('d-desc', w.desc);
-    setText('d-tools', w.tools);
-    setText('d-team', w.team);
+    setTools(w.tools);
+    setTeam(w.team);
     setText('d-stuck', w.stuck);
     setText('d-solved', w.solved);
     const kw = $('d-keyword');

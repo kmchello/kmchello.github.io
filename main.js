@@ -13,50 +13,13 @@
      Figma 시안의 값을 그대로 옮긴 것입니다. 순서는 아래에 깔리는 순서입니다. */
   const DATA = {
     home: `
-      /* 양옆과 아래 가운데에 더한 공구 */
-      h,119,430,-122,102.9,154.4,F t,107,705,-179,104.5,104.5 p,204,658,-76,100.7,151.1,F d,177,438,-129,100.8,151.3
-      w,214,516,-136,108.5,162.7,F s,72,553,95,268.0,176.9 h,1887,343,118,106.8,160.2 l,1858,493,-136,258.5,145.5,F
-      t,1772,345,115,111.3,111.3 p,1814,640,-84,99.0,148.5,F d,1727,727,4,95.6,143.5 w,1966,510,-178,93.5,140.3,F
-      w,1199,981,177,94.6,141.8
-      p,1485,891,64,96.3,144.4 d,679,1098,-167,89.7,134.6 w,427,879,-168,105.3,157.9
-      /* 양옆을 더 채운 공구 */
-      t,50,763,59,108.5,108.5,F h,154,677,26,102.4,153.5 p,120,600,-44,95.6,143.4 d,37,494,-177,102.3,153.5 w,1890,404,-169,93.7,140.6 l,1805,693,41,296.2,166.8,F h,1736,528,81,108.0,161.9,F p,1724,367,-78,92.6,139.0
-      /* 아래 가운데와 오른쪽 아래의 빈틈을 채운 공구 */
-      t,1320,1108,-152,92.8,92.8 p,958,956,-91,100.8,151.2 h,1117,1109,48,97.9,146.8,F p,1604,927,-10,95.1,142.6,F d,1717,1110,-113,102.5,153.8 w,1724,1007,36,105.6,158.5,F l,1923,871,33,251.3,141.5 h,1646,837,57,97.2,145.9
-      /* 진행바 뒤에 뭉친 공구 */
-      h,928,1099,90,116.4,174.7,F t,834,984,171,100.1,100.1
-      w,1087,1006,169,104.6,156.9 s,1039,1053,-18,231.0,152.4,F h,837,1057,166,115.9,173.9 l,681,1016,-145,259.6,146.2,F
-      t,762,1087,161,97.2,97.2 p,1182,1040,-19,97.9,146.8
-      /* 아래쪽 가운데에 뭉친 공구 */
-      d,492,914,175,102.4,153.6 t,1247,950,152,108.5,108.5,F
-      h,1386,900,128,102.3,153.4 t,1308,955,-134,91.8,91.8,F l,350,826,17,252.2,142.0,F
-      h,616,964,-113,112.6,169.0,F w,346,957,-71,115.1,172.7
-      /* 위쪽 가운데에 뭉친 공구 */
-      p,1324,124,98,95.2,142.8,F h,1263,111,-79,105.7,158.5 w,991,89,-26,93.5,140.2
-      t,642,120,-86,107.4,107.4 s,1324,60,88,247.2,163.1,F h,927,121,-74,123.6,185.4,F p,1139,65,-90,96.9,145.4
-      l,856,69,-9,297.1,167.3 t,1052,71,162,104.0,104.0,F w,703,79,-38,102.1,153.2
-      p,915,55,-125,96.9,145.3,F
-      /* 가장자리에 뭉쳐 있는 공구. 글자 주변은 비워 둡니다 */
-      h,1946,728,82,119.0,178.5,F p,476,75,39,112.2,168.3,F d,202,387,28,90.1,135.2 w,-34,254,8,94.8,142.1,F
-      t,178,294,-103,100.0,100.0,F h,123,64,-74,118.3,177.4 p,247,777,106,103.0,154.4 d,318,894,6,99.2,148.9
-      w,398,221,-133,98.6,147.9,F t,1461,1029,126,91.8,91.8 s,1479,166,-10,246.8,162.9,F l,1416,153,-91,247.4,139.3
-      h,-62,355,-57,121.5,182.2 p,1810,584,-97,110.8,166.2 d,51,250,150,110.6,166.0 w,1726,653,152,98.2,147.3
-      t,1552,1045,-102,111.0,111.0 p,1594,247,-116,98.6,147.8 d,1797,754,-132,91.4,137.2,F
-      w,483,985,-36,94.8,142.3,F t,1929,237,101,107.7,107.7 s,1192,94,-176,228.5,150.8 l,239,973,-55,293.3,165.1
-      h,1982,951,101,110.8,166.2 p,1389,88,-15,103.8,155.7 d,1823,871,-148,103.0,154.5 w,1897,1052,35,108.6,162.9,F
-      t,297,228,49,109.0,109.0 h,586,1055,27,113.1,169.7 p,1903,638,143,101.1,151.7 d,1475,228,137,104.8,157.1
-      w,1658,127,75,98.1,147.1 t,1860,794,20,97.8,97.8 s,11,178,-95,286.9,189.4 l,1828,57,-38,283.4,159.5
-      h,1751,206,160,109.6,164.5,F p,182,757,-160,101.5,152.3 d,1966,117,-179,98.3,147.4 w,562,119,102,102.1,153.1,F
-      t,1947,350,43,91.8,91.8 h,1456,953,89,98.8,148.2 p,-36,1090,-144,104.6,156.9 d,1826,1067,-40,103.6,155.4
-      w,508,1077,95,115.5,173.3,F t,-18,595,0,102.6,102.6 s,1867,157,-98,248.5,164.0,F
-      d,-2,59,92,91.7,137.6 w,113,775,37,97.9,146.9
-      t,1792,523,-86,95.3,95.3 h,1539,99,103,103.3,155.0 p,1824,960,-45,109.7,164.5,F d,758,108,-46,96.1,144.2
-      w,368,1054,118,106.8,160.1 t,1896,537,-102,94.0,94.0,F s,1797,117,-117,250.3,165.2,F l,1889,979,26,276.6,155.7
-      h,1750,279,19,114.9,172.4 p,1925,461,-21,106.9,160.4,F d,405,155,-25,101.3,152.0 w,1731,902,-83,113.4,170.1,F
-      t,771,975,-25,96.2,96.2,F h,120,509,140,107.9,161.8 p,293,1116,-62,108.1,162.1 d,1836,382,155,113.1,169.6
-      w,556,958,103,111.4,167.0,F t,-52,936,-2,107.5,107.5,F s,1699,62,-15,278.1,183.5 l,342,143,-56,292.2,164.5,F
-      h,151,825,-138,102.3,153.5 p,-41,822,-87,112.2,168.3,F d,1763,469,23,104.1,156.2 w,1620,1050,30,95.4,143.1
- t,1741,806,79,109.2,109.2 h,417,947,40,115.9,173.8,F p,37,895,16,93.2,139.7,F `,
+      h,90,340,-62,290,435,F t,70,160,10,290,290 w,280,90,100,270,405,F d,100,420,76,240,360
+      t,240,190,40,290,290,F s,1794,75,20,620,410 t,1860,290,-20,290,290,F p,1880,110,66,260,390,F
+      w,1480,50,-40,270,405 h,1880,470,100,290,435 l,1840,1000,-38,640,360,F p,1740,980,-155,260,390,F
+      t,1580,1070,8,290,290 d,1890,860,95,240,360 h,1420,1060,-20,290,435 w,30,810,-105,270,405,F
+      t,160,1030,-12,290,290,F h,80,980,70,290,435 p,370,1050,-18,260,390 d,280,900,115,240,360
+      p,1030,70,88,260,390 s,1007,1316,-94,620,410 h,1340,1150,-30,290,435,F
+    `,
     about: `
       t,1566,769,10,110,110 h,892,808,35,93.6,140.4 p,289,757,160,93.5,140.3,F l,1252,781,-9,249.4,140.2
       w,1784,781,-40,92.7,139.4 s,585,757,-8,228.8,152.2 d,150,950,-12,93.5,140.3 t,330,975,10,110,110
@@ -96,29 +59,6 @@
   resize();
 
   /* ----- 2. 공구 배치 ----- */
-  /* 자리 표시: 판 전체에 반듯한 간격으로 공구의 '제자리'를 그림자처럼 깔아 둡니다.
-     공구가 쌓여 있을 때는 거의 보이지 않고, 공구가 비켜나면 비어 있던 자리가 드러납니다. */
-  function buildGhosts(layer) {
-    const kinds = ['d', 't', 'h', 'p', 'l', 'w', 's'];
-    const size = { d: [72, 108], t: [95, 95], h: [72, 108], p: [72, 108], l: [146, 82], w: [72, 108], s: [145, 97] };
-    const box = document.createElement('div');
-    box.className = 'ghosts';
-    box.setAttribute('aria-hidden', 'true');
-    for (let r = 0; r < 8; r++) {
-      for (let c = 0; c < 12; c++) {
-        const k = kinds[(c + r * 3) % kinds.length], [w, h] = size[k];
-        const img = document.createElement('img');
-        img.src = `assets/tools/${FILES[k]}.png`;
-        img.alt = '';
-        img.draggable = false;
-        img.style.cssText = `left:${170 + c * 150 - w / 2}px;top:${130 + r * 125 - h / 2}px;width:${w}px;height:${h}px`;
-        box.appendChild(img);
-      }
-    }
-    layer.appendChild(box);
-    ghostBox = box;
-  }
-  let ghostBox = null;
 
   const panels = IDS.map(id => document.getElementById('p-' + id));
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -187,7 +127,6 @@
   toolPanels.forEach((panel, pi) => {
     const mode = panel.dataset.mode;
     const layer = panel.querySelector('.tools');
-    if (panel.id === 'p-home') buildGhosts(layer);
     panel._tools = parse(DATA[toolKeys[pi]]).map((d, i) => {
       const el = document.createElement('div');
       el.className = 'tool' + (mode === 'hang' ? ' hang' : '');
@@ -209,7 +148,7 @@
       const r2 = Math.abs(Math.sin((i + 1) * 39.3468 + pi * 11.135) * 24634.6345) % 1;
       const mass = clamp(Math.max(d.w, d.h) / 150, 0.8, 1.7);       // 큰 공구일수록 덜 움직입니다
       return { el, ...d, ox: 0, oy: 0, vx: 0, vy: 0, rot: 0, vrot: 0, theta: 0, omega: 0, dirty: false,
-               mass, spin: (r1 < 0.5 ? -1 : 1) * (0.6 + r2 * 0.8), reach: 0.8 + r1 * 0.5 };
+               mass, spin: (r1 < 0.5 ? -1 : 1) * (0.6 + r2 * 0.8), reach: 0.8 + r1 * 0.5, clear: panel.id === 'p-home' };
     });
   });
 
@@ -354,6 +293,7 @@
 
   let lockUntil = 0;
   addEventListener('wheel', e => {
+    if (document.body.classList.contains('lb-open')) { e.preventDefault(); return; }
     if (detailOpen) return;                       // 작업 상세는 그 화면 안에서 기본 스크롤로 내려갑니다
     e.preventDefault();
     const now = performance.now();
@@ -372,7 +312,7 @@
   }, { passive: false });
 
   addEventListener('keydown', e => {
-    if (detailOpen) return;
+    if (detailOpen || document.body.classList.contains('lb-open')) return;
     const pg = pagers[cur];
     if (pg) {
       const step = { ArrowDown: 1, ArrowUp: -1, PageDown: 1, PageUp: -1 }[e.key];
@@ -562,6 +502,15 @@
         tr = t.spin * (push / R) * 26;                                      // 치워지면서 살짝 비스듬히 돌아갑니다
       }
     }
+    // 첫 화면에서는 PORTFOLIO 둘레의 큰 가로 타원 안으로 공구가 밀려 들어오지 않게 합니다
+    if (t.clear && (tx || ty)) {
+      const ex = 960 + t.w * 0.18, ey = 330 + t.h * 0.18;
+      const fr = ((t.cx - 960) / ex) ** 2 + ((t.cy - 540) / ey) ** 2;          // 제자리에서의 위치
+      const lim = Math.min(fr, 1);
+      let qx = t.cx + tx - 960, qy = t.cy + ty - 540;
+      const fq = (qx / ex) ** 2 + (qy / ey) ** 2;
+      if (fq < lim) { const k = Math.sqrt(lim / (fq || 1e-6)); qx *= k; qy *= k; tx = qx + 960 - t.cx; ty = qy + 540 - t.cy; }
+    }
     // 밀릴 때는 재빨리 따라붙고(툭), 돌아올 때는 천천히 부드럽게(튕기지 않음)
     const pushing = Math.hypot(tx, ty) > Math.hypot(t.ox, t.oy);
     const k = 1 - Math.pow(1 - (pushing ? 0.26 : 0.07), dt);
@@ -596,21 +545,6 @@
     }
   }
 
-  /* 자리 표시: 평소에는 거의 보이지 않다가, 공구가 치워지는 커서 주변에서만 비어 있던 제자리가 또렷해집니다 */
-  const gh = { x: -999, y: -999, r: 0 };
-  function stepGhosts() {
-    if (!ghostBox) return;
-    const on = pointer.panel === 0 && !detailOpen;
-    const k = 1 - Math.pow(1 - 0.07, dt);
-    if (on) { gh.x += (pointer.x - gh.x) * (gh.r < 8 ? 1 : 1 - Math.pow(0.75, dt)); gh.y += (pointer.y - gh.y) * (gh.r < 8 ? 1 : 1 - Math.pow(0.75, dt)); }
-    const target = on ? 270 : 0;
-    if (Math.abs(target - gh.r) < 0.5 && !on) { if (gh.r !== 0) { gh.r = 0; ghostBox.style.setProperty('--gr', '1px'); } return; }
-    gh.r += (target - gh.r) * k;
-    ghostBox.style.setProperty('--gx', gh.x.toFixed(1) + 'px');
-    ghostBox.style.setProperty('--gy', gh.y.toFixed(1) + 'px');
-    ghostBox.style.setProperty('--gr', Math.max(gh.r, 1).toFixed(1) + 'px');
-  }
-
   let lastT = performance.now();
   function frame(now) {
     dt = clamp((now - lastT) / 16.667, 0.2, 3); lastT = now;
@@ -626,10 +560,28 @@
       const pd = detailOpen && pointer.panel === -2 ? pointer : null;
       for (const t of detail._tools) stepHang(t, pd);
     }
-    stepGhosts();
     for (const k in pagers) pagers[k].tick();
     pointer.px = pointer.x; pointer.py = pointer.y;
     requestAnimationFrame(frame);
   }
   if (!reduce) requestAnimationFrame(frame);
+
+  /* ----- 프로필 사진 크게 보기 ----- */
+  const lb = document.getElementById('lightbox');
+  const prof = document.querySelector('#p-about .zoomable');
+  function openLb() {
+    lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.classList.add('lb-open');
+    lb.querySelector('.lb-close').focus({ preventScroll: true });
+  }
+  function closeLb() {
+    if (!lb.classList.contains('open')) return;
+    lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.classList.remove('lb-open');
+    prof.focus({ preventScroll: true });
+  }
+  if (prof) {
+    prof.addEventListener('click', openLb);
+    prof.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(); } });
+  }
+  lb.addEventListener('click', closeLb);
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 })();

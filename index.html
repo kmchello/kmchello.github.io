@@ -47,7 +47,7 @@
       <p class="about-text rv" style="--d:.24s">새 작업을 시작하면 요소와 색부터 더하던 사람이었습니다. 그러다 늘 비슷한 곳에서 막혔고, 지금은 무엇을 남길지 먼저 정하고 시작합니다. 그 방식으로 UIUX와 브랜딩 작업을 하고 있습니다.</p>
 
       <div class="hangbox rv rv-hang" style="left:1100px;top:262px;width:300px;height:400px;--d:.3s">
-        <div class="ph"><span>PROFILE IMAGE</span></div>
+        <div class="ph zoomable" role="button" tabindex="0" aria-label="프로필 사진 크게 보기"><img src="assets/profile.jpg" alt="김민찬 프로필 사진" draggable="false"></div>
         <i class="peg" style="left:55px;top:-6px"></i><i class="peg" style="left:235px;top:-6px"></i>
       </div>
 
@@ -130,7 +130,6 @@
       <div class="worklist" id="processlist">
         <div class="wl-inner" style="--n:1">
           <article class="pcase on">
-            <span class="p-no">01</span>
             <h3 class="p-kw">판</h3>
             <p class="p-sum">레이아웃과 UI 기초를 먼저 정하고,<br>그 위에 내용을 얹습니다.</p>
             <ol class="p-steps"><li>격자와 여백 기준을 정합니다</li><li>화면 유형별 기본 틀을 만듭니다</li><li>틀 위에서 세부를 채웁니다</li></ol>
@@ -138,7 +137,6 @@
             <div class="p-vis"><div class="v-ban"><i class="peg" style="left:78px;top:-6px"></i><i class="peg" style="left:376px;top:-6px"></i><b style="left:36px;top:44px;width:388px;height:70px"></b><b style="left:36px;top:140px;width:182px;height:210px"></b><b style="left:242px;top:140px;width:182px;height:100px"></b><b style="left:242px;top:262px;width:182px;height:88px"></b><b style="left:36px;top:374px;width:388px;height:40px"></b></div></div>
           </article>
           <article class="pcase">
-            <span class="p-no">02</span>
             <h3 class="p-kw">제자리</h3>
             <p class="p-sum">색과 요소마다 쓰임을 정해 놓고<br>그 안에서 고릅니다.</p>
             <ol class="p-steps"><li>색과 요소의 쓰임을 먼저 정합니다</li><li>정해 둔 쓰임 안에서만 고릅니다</li><li>쓰임이 없는 요소는 더하지 않습니다</li></ol>
@@ -146,7 +144,6 @@
             <div class="p-vis"><div class="v-jari"><div class="slot"><img class="g" src="assets/tools/hammer.png" alt=""><img class="t" src="assets/tools/hammer.png" alt=""></div><div class="slot"><img class="g" src="assets/tools/pliers.png" alt=""><img class="t" src="assets/tools/pliers.png" alt=""></div><div class="slot"><img class="g" src="assets/tools/driver.png" alt=""><img class="t d" src="assets/tools/driver.png" alt=""></div></div></div>
           </article>
           <article class="pcase">
-            <span class="p-no">03</span>
             <h3 class="p-kw">걸고 빼기</h3>
             <p class="p-sum">판은 그대로 두고,<br>걸린 것만 바꿉니다.</p>
             <ol class="p-steps"><li>틀은 두고 바뀐 부분만 교체합니다</li><li>교체할 때마다 쓰임을 다시 확인합니다</li><li>일정과 우선순위를 다시 정리합니다</li></ol>
@@ -230,6 +227,11 @@
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="프로필 사진">
+  <button class="lb-close" type="button">닫기</button>
+  <img src="assets/profile.jpg" alt="김민찬 프로필 사진" draggable="false">
+</div>
 
 <!-- 고정 UI -->
 <button class="arrow prev" aria-label="이전 화면" hidden></button>

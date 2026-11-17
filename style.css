@@ -448,3 +448,7 @@ body.detail-open .arrow{display:none}
 .tools li.off .ti img{filter:grayscale(.85)}
 .tools li.off .gauge i{background:#9a9a9a}
 .tools li{transition:opacity .4s ease}
+
+/* 슬라이드(16:9) 이미지는 잘리지 않게 비율대로 */
+.detail .g-list .shot.r169{height:auto;aspect-ratio:16/9;background:#fff}
+.g-list .shot.r169>img{object-fit:contain}

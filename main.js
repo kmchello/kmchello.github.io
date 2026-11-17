@@ -390,6 +390,40 @@
         ]
       } },
     tensec: { title: '10초', cat: 'UIUX', kind: 'app', type: '조기퇴직 해결 앱',
+      desc: '현대 가족의 대화 부족과 중장년층의 조기 퇴직 문제를 함께 해결하는 앱 서비스입니다. 하루 10초씩 가족에게 영상 편지를 보내며 소통을 이어 가고, 적성검사와 취미 탐색, AI 추천으로 나에게 맞는 일과 취미를 찾도록 돕습니다.',
+      imgs: {
+        list: ['assets/work/tensec/hero-1.jpg', 'assets/work/tensec/hero-2.jpg', 'assets/work/tensec/hero-5.jpg'],
+        phones: ['assets/work/tensec/hero-1.jpg', 'assets/work/tensec/hero-2.jpg', 'assets/work/tensec/hero-3.jpg', 'assets/work/tensec/hero-4.jpg', 'assets/work/tensec/hero-5.jpg'],
+        groups: [
+          { label: 'PLANNING', title: '기획과 리서치', desc: '프로젝트 배경 조사에서 인사이트, 컨셉, 정보구조, 와이어프레임까지의 기획 과정입니다.',
+            items: [
+              { src: 'assets/work/tensec/plan-1.jpg', cap: '프로젝트 개요', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-2.jpg', cap: '프로젝트 배경', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-3.jpg', cap: '인사이트 도출', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-4.jpg', cap: '3C · SWOT 분석', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-5.jpg', cap: '벤치마킹 · 포지셔닝 맵', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-6.jpg', cap: '핵심 기능 도출 · 컨셉시트', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-7.jpg', cap: '페르소나 · 사용자 여정지도', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-8.jpg', cap: '정보구조도', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-9.jpg', cap: '플로우차트', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-10.jpg', cap: '와이어프레임', ratio: '16/9' },
+              { src: 'assets/work/tensec/plan-11.jpg', cap: '메인 페이지 시각화', ratio: '16/9' }
+            ] },
+          { label: 'APP', title: '앱 디자인', desc: '10초 편지, 하루 편지, 적성검사, 취미 탐색까지 앱의 전체 화면입니다.',
+            items: [
+              { src: 'assets/work/tensec/app-1.jpg', cap: '시작과 로그인' },
+              { src: 'assets/work/tensec/app-2.jpg', cap: '로그인 완료와 홈' },
+              { src: 'assets/work/tensec/app-3.jpg', cap: '10초 편지 촬영과 작성' },
+              { src: 'assets/work/tensec/app-4.jpg', cap: '메모 작성과 편지 보내기' },
+              { src: 'assets/work/tensec/app-5.jpg', cap: '보낸 편지함 · 받은 편지함' },
+              { src: 'assets/work/tensec/app-6.jpg', cap: '하루 편지 작성' },
+              { src: 'assets/work/tensec/app-7.jpg', cap: '하루 편지 읽기 · 하루 메모' },
+              { src: 'assets/work/tensec/app-8.jpg', cap: '적성검사 설문 (22문항 중 5문항)' },
+              { src: 'assets/work/tensec/app-9.jpg', cap: '적성검사 결과 · 마이페이지' },
+              { src: 'assets/work/tensec/app-10.jpg', cap: '취미 탐색 · AI 추천' }
+            ] }
+        ]
+      },
       stuck: '기획이 바뀌어 막바지에 전부 다시 만들었습니다. 어울리지 않는 색을 감으로 더하다 화면이 어수선해지기도 했습니다.',
       role: '걸고 빼기', roleLine: '기획이 바뀌어 통째로 엎었던 작업입니다.' },
     soomgo: { title: '숨고 리디자인', cat: 'UIUX', kind: 'app', type: '리디자인',
@@ -453,7 +487,7 @@
       return '<div class="shot has-img video"><video src="' + s.video + '" poster="' + (s.src || '') + '" controls playsinline preload="none" controlslist="nodownload"></video>' +
         (s.cap ? '<span class="cap">' + s.cap + '</span>' : '') + '</div>';
     }
-    return '<div class="shot has-img"><img src="' + s.src + '" alt="' + (s.cap || '') + '" loading="lazy" draggable="false">' +
+    return '<div class="shot has-img' + (s.ratio === '16/9' ? ' r169' : '') + '"><img src="' + s.src + '" alt="' + (s.cap || '') + '" loading="lazy" draggable="false">' +
       (s.cap ? '<span class="cap">' + s.cap + '</span>' : '') + '</div>';
   }
   Object.keys(WORKS).forEach(id => {                       // WORK 목록의 이미지

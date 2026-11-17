@@ -389,7 +389,7 @@
             items: [{ video: 'assets/work/zalgagye/goodbye.mp4', src: 'assets/work/zalgagye/video-poster.jpg', cap: '잘가계 소개 영상' }] }
         ]
       } },
-    tensec: { title: '10초', cat: 'UIUX', kind: 'app', type: '조기퇴직 해결 앱',
+    tensec: { title: '10초', cat: 'UIUX', kind: 'wide', type: '조기퇴직 해결 앱',
       desc: '현대 가족의 대화 부족과 중장년층의 조기 퇴직 문제를 함께 해결하는 앱 서비스입니다. 하루 10초씩 가족에게 영상 편지를 보내며 소통을 이어 가고, 적성검사와 취미 탐색, AI 추천으로 나에게 맞는 일과 취미를 찾도록 돕습니다.',
       tools: [
         { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
@@ -400,8 +400,8 @@
         { role: '디자인', names: '김민찬, 이나경' }
       ],
       imgs: {
-        list: ['assets/work/tensec/hero-1.jpg','assets/work/tensec/hero-2.jpg', 'assets/work/tensec/hero-5.jpg'],
-        phones: ['assets/work/tensec/hero-1.jpg', 'assets/work/tensec/hero-2.jpg', 'assets/work/tensec/hero-3.jpg', 'assets/work/tensec/hero-4.jpg', 'assets/work/tensec/hero-5.jpg'],
+        list: ['assets/work/tensec/thumb.jpg'],
+        hero: 'assets/work/tensec/hero-wide.jpg', heroH: 961,     // heroH: 큰 이미지 칸 높이(원본 비율대로 보이게)
         groups: [
           { label: 'PLANNING', title: '기획과 리서치', desc: '프로젝트 배경 조사에서 인사이트, 컨셉, 정보구조, 와이어프레임까지의 기획 과정입니다.',
             items: [
@@ -509,6 +509,7 @@
   const dApp = dstage.querySelector('.g-app'), dWide = dstage.querySelector('.g-wide');
   const dDefault = { app: dApp.innerHTML, wide: dWide.innerHTML, phones: dPhones.innerHTML, hero: dHeroBig.innerHTML };
   const dShots = dstage.querySelector('.s-shots'), dGroups = $('d-groups');
+  const dHero = dstage.querySelector('.d-hero');
   const grpIO = 'IntersectionObserver' in window
     ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); grpIO.unobserve(e.target); } }), { root: detail, threshold: 0.06 })
     : null;
@@ -520,6 +521,7 @@
     dApp.innerHTML = dDefault.app; dWide.innerHTML = dDefault.wide;
     dPhones.innerHTML = dDefault.phones; dHeroBig.innerHTML = dDefault.hero; dHeroBig.classList.remove('has-img');
     dGroups.innerHTML = ''; dShots.style.display = '';
+    dHero.style.height = '';
     const im = w.imgs;
     if (!im) return;
     if (im.groups && im.groups.length) {
@@ -528,6 +530,7 @@
       dGroups.querySelectorAll('.grp').forEach(g => { if (grpIO) grpIO.observe(g); else g.classList.add('seen'); });
     }
     if (im.hero) putImg(dHeroBig, im.hero, w.title);
+    if (im.heroH) dHero.style.height = im.heroH + 'px';
     if (im.phones) dPhones.querySelectorAll('.shot').forEach((sh, i) => { if (im.phones[i]) putImg(sh, im.phones[i], w.title); });
     if (im.shots && im.shots.length) (w.kind === 'app' ? dApp : dWide).innerHTML = im.shots.map(shotHTML).join('');
   }

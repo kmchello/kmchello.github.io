@@ -460,7 +460,7 @@
       '<li' + (t.off ? ' class="off"' : '') + '><span class="ti' + (t.fill ? ' fill' : '') + '"><img src="' + t.icon + '" alt="" draggable="false"></span>' +
       '<span class="tn">' + t.name + '</span>' +
       '<span class="gauge" role="img" aria-label="사용 빈도 ' + t.level + '%"><i style="--lv:' + t.level + '%"></i></span></li>').join('') +
-      '</ul><p class="tools-note">막대는 사용 빈도입니다.</p>';
+      '</ul>';
   }
   function setTeam(list) {
     const el = $('d-team');

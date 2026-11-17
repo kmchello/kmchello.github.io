@@ -434,7 +434,32 @@
       },
       stuck: '기획이 바뀌어 막바지에 전부 다시 만들었습니다. 어울리지 않는 색을 감으로 더하다 화면이 어수선해지기도 했습니다.',
       role: '걸고 빼기', roleLine: '기획이 바뀌어 통째로 엎었던 작업입니다.' },
-    soomgo: { title: '숨고 리디자인', cat: 'UIUX', kind: 'app', type: '리디자인',
+    soomgo: { title: '숨고 리디자인', cat: 'UIUX', kind: 'wide', type: '리디자인',
+      desc: '전문가 매칭 플랫폼 숨고의 UI를 다시 디자인한 작업입니다. 아이콘 색상을 통일하고 광고 배너를 더했으며, 커뮤니티 카드와 페이지 구성을 단순하게 정리해 접근성을 높였습니다.',
+      tools: [
+        { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
+        { name: 'Photoshop', icon: 'assets/icons/photoshop.svg', level: 85, fill: true }
+      ],
+      team: [{ role: '디자인', names: '김민찬' }],
+      imgs: {
+        list: ['assets/work/soomgo/thumb.jpg'],
+        hero: 'assets/work/soomgo/hero.jpg', heroH: 949,
+        groups: [
+          { label: 'PROCESS', title: '리디자인 과정', desc: '서비스 목표 설정부터 페르소나, 고객 여정도, 문제점 도출, 디자인 스타일까지의 과정입니다.',
+            items: [
+              { src: 'assets/work/soomgo/p-1.jpg', cap: '서비스 목표', ratio: '1920/1910' },
+              { src: 'assets/work/soomgo/p-2.jpg', cap: '페르소나', ratio: '1920/1190' },
+              { src: 'assets/work/soomgo/p-3.jpg', cap: '고객 여정도', ratio: '1920/1200' },
+              { src: 'assets/work/soomgo/p-4.jpg', cap: '문제점 도출과 개선사항', ratio: '1920/1720' },
+              { src: 'assets/work/soomgo/p-5.jpg', cap: '디자인 스타일 · 컬러 · 컴포넌트 UI 키트', ratio: '1920/2200' }
+            ] },
+          { label: 'APP', title: '앱 디자인', desc: 'UI 키트를 적용해 개선한 화면입니다.',
+            items: [
+              { src: 'assets/work/soomgo/g-1.jpg', cap: 'GUI 화면 ① 홈 · 커뮤니티', ratio: '1920/1970' },
+              { src: 'assets/work/soomgo/g-2.jpg', cap: 'GUI 화면 ② 커뮤니티 상세', ratio: '1920/1900' }
+            ] }
+        ]
+      },
       stuck: '앱 UI를 배운 적이 없어 초반에 방향이 잡히지 않았습니다.',
       role: '판', roleLine: '기초 없이 시작해 막혔던 작업입니다.' },
     typoweb: { title: '타이포웹구현', cat: 'WEB', kind: 'wide', type: '웹 구현',
@@ -495,7 +520,7 @@
       return '<div class="shot has-img video"><video src="' + s.video + '" poster="' + (s.src || '') + '" controls playsinline preload="none" controlslist="nodownload"></video>' +
         (s.cap ? '<span class="cap">' + s.cap + '</span>' : '') + '</div>';
     }
-    return '<div class="shot has-img' + (s.ratio === '16/9' ? ' r169' : '') + '"><img src="' + s.src + '" alt="' + (s.cap || '') + '" loading="lazy" draggable="false">' +
+    return '<div class="shot has-img' + (s.ratio === '16/9' ? ' r169' : (s.ratio ? ' rx' : '')) + '"' + (s.ratio && s.ratio !== '16/9' ? ' style="aspect-ratio:' + s.ratio + '"' : '') + '><img src="' + s.src + '" alt="' + (s.cap || '') + '" loading="lazy" draggable="false">' +
       (s.cap ? '<span class="cap">' + s.cap + '</span>' : '') + '</div>';
   }
   Object.keys(WORKS).forEach(id => {                       // WORK 목록의 이미지

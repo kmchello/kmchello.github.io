@@ -452,3 +452,7 @@ body.detail-open .arrow{display:none}
 /* 슬라이드(16:9) 이미지는 잘리지 않게 비율대로 */
 .detail .g-list .shot.r169{height:auto;aspect-ratio:16/9;background:#fff}
 .g-list .shot.r169>img{object-fit:contain}
+
+/* 비율이 정해진 섹션 이미지(숨고 등) */
+.detail .g-list .shot.rx{height:auto;background:#fff}
+.g-list .shot.rx>img{object-fit:contain}

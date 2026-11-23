@@ -11,18 +11,18 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2710%27 fill=%27none%27 stroke=%27%23cc6b24%27 stroke-width=%275%27 stroke-dasharray=%274 3%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261117l">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261123b">
 </head>
 <body>
 
 <header class="nav">
   <a class="brand" href="#home" data-go="0">KIM MINCHAN</a>
   <nav aria-label="주 메뉴">
-    <a href="#about" data-go="1">ABOUT</a>
-    <a href="#work" data-go="2">WORK</a>
-    <a href="#process" data-go="3">PROCESS</a>
-    <a href="#contact" data-go="4">CONTACT</a>
+    <a href="#about" data-t="ABOUT" data-go="1">ABOUT</a>
+    <a href="#work" data-t="WORK" data-go="2">WORK</a>
+    <a href="#process" data-t="PROCESS" data-go="3">PROCESS</a>
+    <a href="#contact" data-t="CONTACT" data-go="4">CONTACT</a>
   </nav>
   <div class="progress" aria-hidden="true"><i></i></div>
 </header>
@@ -130,23 +130,20 @@
       <div class="worklist" id="processlist">
         <div class="wl-inner" style="--n:1">
           <article class="pcase on">
-            <h3 class="p-kw">판</h3>
-            <p class="p-sum">레이아웃과 UI 기초를 먼저 정하고,<br>그 위에 내용을 얹습니다.</p>
-            <ol class="p-steps"><li>격자와 여백 기준을 정합니다</li><li>화면 유형별 기본 틀을 만듭니다</li><li>틀 위에서 세부를 채웁니다</li></ol>
+            <div class="p-head"><h3 class="p-kw">판</h3><p class="p-sum">기준부터 깝니다</p></div>
+            <ol class="p-steps"><li><i>01</i>격자와 여백</li><li><i>02</i>기본 틀</li><li><i>03</i>세부 채우기</li></ol>
             <div class="p-links"><span class="lab">걸었던 작업</span><a href="#work/soomgo">숨고 리디자인</a><a href="#work/typoweb">타이포웹구현</a></div>
             <div class="p-vis"><div class="v-ban"><i class="peg" style="left:78px;top:-6px"></i><i class="peg" style="left:376px;top:-6px"></i><b style="left:36px;top:44px;width:388px;height:70px"></b><b style="left:36px;top:140px;width:182px;height:210px"></b><b style="left:242px;top:140px;width:182px;height:100px"></b><b style="left:242px;top:262px;width:182px;height:88px"></b><b style="left:36px;top:374px;width:388px;height:40px"></b></div></div>
           </article>
           <article class="pcase">
-            <h3 class="p-kw">제자리</h3>
-            <p class="p-sum">색과 요소마다 쓰임을 정해 놓고<br>그 안에서 고릅니다.</p>
-            <ol class="p-steps"><li>색과 요소의 쓰임을 먼저 정합니다</li><li>정해 둔 쓰임 안에서만 고릅니다</li><li>쓰임이 없는 요소는 더하지 않습니다</li></ol>
+            <div class="p-head"><h3 class="p-kw">제자리</h3><p class="p-sum">쓰임부터 정합니다</p></div>
+            <ol class="p-steps"><li><i>01</i>쓰임 정하기</li><li><i>02</i>안에서 고르기</li><li><i>03</i>없는 건 안 더하기</li></ol>
             <div class="p-links"><span class="lab">걸었던 작업</span><a href="#work/kurly">마켓컬리 리디자인</a><a href="#work/tensec">10초</a></div>
             <div class="p-vis"><div class="v-jari"><div class="slot"><img class="g" src="assets/tools/hammer.png" alt=""><img class="t" src="assets/tools/hammer.png" alt=""></div><div class="slot"><img class="g" src="assets/tools/pliers.png" alt=""><img class="t" src="assets/tools/pliers.png" alt=""></div><div class="slot"><img class="g" src="assets/tools/driver.png" alt=""><img class="t d" src="assets/tools/driver.png" alt=""></div></div></div>
           </article>
           <article class="pcase">
-            <h3 class="p-kw">걸고 빼기</h3>
-            <p class="p-sum">판은 그대로 두고,<br>걸린 것만 바꿉니다.</p>
-            <ol class="p-steps"><li>틀은 두고 바뀐 부분만 교체합니다</li><li>교체할 때마다 쓰임을 다시 확인합니다</li><li>일정과 우선순위를 다시 정리합니다</li></ol>
+            <div class="p-head"><h3 class="p-kw">걸고 빼기</h3><p class="p-sum">바뀐 것만 바꿉니다</p></div>
+            <ol class="p-steps"><li><i>01</i>틀은 그대로</li><li><i>02</i>바뀐 것만 교체</li><li><i>03</i>쓰임 다시 확인</li></ol>
             <div class="p-links"><span class="lab">걸었던 작업</span><a href="#work/tensec">10초</a></div>
             <div class="p-vis"><div class="v-swap"><div class="slot"><img class="t" src="assets/tools/hammer.png" alt=""></div><div class="slot"><img class="g sw" src="assets/tools/pliers.png" alt=""><img class="g sw w" src="assets/tools/wrench.png" alt=""><img class="t w" src="assets/tools/wrench.png" alt=""><img class="t p" src="assets/tools/pliers.png" alt=""></div><div class="slot"><img class="t" src="assets/tools/driver.png" alt=""></div></div></div>
           </article>
@@ -203,6 +200,11 @@
         </dl>
       </section>
 
+      <section class="sec s-contrib">
+        <div><p class="d-label">맡은 일</p><p class="d-role" id="d-role"></p><p class="d-rolesub" id="d-rolesub"></p></div>
+        <div><ol class="d-duties" id="d-duties"></ol><div class="d-share" id="d-share"></div></div>
+      </section>
+
       <section class="sec s-two">
         <div><p class="d-label">막혔던 지점</p><p class="d-text" id="d-stuck"></p></div>
         <div><p class="d-label">푼 방법</p><p class="d-text" id="d-solved"></p></div>
@@ -242,6 +244,6 @@
 
 <div class="notice"><p>PC 화면에 맞춰 만든 사이트입니다.<br>더 넓은 화면에서 열어 주세요.</p></div>
 
-<script src="main.js?v=20261117l"></script>
+<script src="main.js?v=20261123b"></script>
 </body>
 </html>

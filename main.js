@@ -350,6 +350,8 @@
     // tools: [{name, icon, level(사용 빈도 0~100), fill(어도비처럼 아이콘이 이미 둥근 타일이면 true), off(true면 흐리게 비활성 표시)}]
     // team:  [{role, names}]  — 글 한 줄이면 문자열로 적어도 됩니다
     zalgagye: { title: '잘가계', cat: 'APP, WEB, VIDEO', type: '졸업작품', kind: 'wide',
+      contrib: { role: '디자인 팀장', sub: '디자인팀 4명을 이끌며 디자인 전반을 맡았습니다.',
+        duties: ['메인 컬러와 전체 디자인 시스템', '메인 로고', '앱 로고와 아이콘', '캐릭터 제작', '앱 디자인'], share: 40, approx: true },
       desc: '“헤어졌는데, 같이 쓰던 건 누가 정리하지?”라는 질문에서 시작한 이별 후 오프보딩 서비스입니다. 공동 계정부터 공유 앨범까지, 얽혀 있던 디지털 자산을 서로 다치지 않게 나누도록 네 명의 캐릭터 중재자가 대신 말을 전합니다. 기획부터 캐릭터와 앱 디자인, 모션그래픽, 웹사이트까지 팀 Layer가 함께 만든 졸업작품입니다.',
       tools: [
         { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
@@ -390,6 +392,8 @@
         ]
       } },
     tensec: { title: '10초', cat: 'UIUX', kind: 'wide', type: '조기퇴직 해결 앱',
+      contrib: { role: '앱 디자인 · 기획 일부', sub: '앱 디자인과 디자인 시스템 전체를 맡고, 기획에도 참여했습니다.',
+        duties: ['앱 디자인', '기획 일부 담당', '앱 로고', '디자인 시스템 전체'], share: 35, shareText: '약 30~40%' },
       desc: '현대 가족의 대화 부족과 중장년층의 조기 퇴직 문제를 함께 해결하는 앱 서비스입니다. 하루 10초씩 가족에게 영상 편지를 보내며 소통을 이어 가고, 적성검사와 취미 탐색, AI 추천으로 나에게 맞는 일과 취미를 찾도록 돕습니다.',
       tools: [
         { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
@@ -441,6 +445,8 @@
         { name: 'Photoshop', icon: 'assets/icons/photoshop.svg', level: 85, fill: true }
       ],
       team: [{ role: '디자인', names: '김민찬' }],
+      contrib: { role: '개인 작업', sub: '리디자인의 처음부터 끝까지 혼자 맡았습니다.',
+        duties: ['서비스 목표 · 페르소나 · 고객 여정도 정리', '문제점을 도출하고 개선 방향 정하기', '디자인 스타일과 UI 키트 만들기', 'GUI 화면 디자인'], share: 100 },
       imgs: {
         list: ['assets/work/soomgo/thumb.jpg'],
         hero: 'assets/work/soomgo/hero.jpg', heroH: 949,
@@ -463,12 +469,15 @@
       stuck: '앱 UI를 배운 적이 없어 초반에 방향이 잡히지 않았습니다.',
       role: '판', roleLine: '기초 없이 시작해 막혔던 작업입니다.' },
     typoweb: { title: '타이포웹구현', cat: 'WEB', kind: 'wide', type: '웹 구현',
+      contrib: { role: '개인 작업', sub: '처음부터 끝까지 혼자 맡았습니다.', duties: ['전 과정을 혼자 진행'], share: 100 },
       stuck: '레이아웃 배치부터 막혀 처음에는 진행하지 못했습니다.',
       role: '판', roleLine: '레이아웃 배치부터 막혔던 작업입니다.' },
     kurly: { title: '마켓컬리 리디자인', cat: 'UIUX', kind: 'app', type: '리디자인',
+      contrib: { role: '개인 작업', sub: '처음부터 끝까지 혼자 맡았습니다.', duties: ['전 과정을 혼자 진행'], share: 100 },
       stuck: '아이콘 모양에서 태그에 맞는 아이디어가 떠오르지 않았습니다.',
       role: '제자리', roleLine: '아이콘이 놓일 쓰임을 정해야 했던 작업입니다.' },
-    rework: { title: 'adidas RE-WORN', cat: 'BRANDING', type: '브랜딩', kind: 'wide' }
+    rework: { title: 'adidas RE-WORN', cat: 'BRANDING', type: '브랜딩', kind: 'wide',
+      contrib: { role: '개인 작업', sub: '처음부터 끝까지 혼자 맡았습니다.', duties: ['전 과정을 혼자 진행'], share: 100 } }
   };
   const ORDER = Object.keys(WORKS);
   const $ = id => document.getElementById(id);
@@ -486,6 +495,21 @@
       '<span class="tn">' + t.name + '</span>' +
       '<span class="gauge" role="img" aria-label="사용 빈도 ' + t.level + '%"><i style="--lv:' + t.level + '%"></i></span></li>').join('') +
       '</ul>';
+  }
+  // 맡은 일: 역할 · 담당 업무 · 기여도(게이지). contrib 가 없으면 '작성 예정'
+  function setContrib(c) {
+    const role = $('d-role'), sub = $('d-rolesub'), list = $('d-duties'), share = $('d-share');
+    if (!c) {
+      role.textContent = TBD; role.classList.add('empty'); sub.textContent = '';
+      list.innerHTML = '<li class="empty">' + TBD + '</li>'; share.className = 'd-share'; share.innerHTML = ''; return;
+    }
+    role.classList.remove('empty'); role.textContent = c.role; sub.textContent = c.sub || '';
+    list.innerHTML = (c.duties || []).map(d => '<li>' + d + '</li>').join('');
+    if (c.share != null) {
+      share.className = 'd-share on';
+      const txt = c.shareText || ((c.approx ? '약 ' : '') + c.share + '%');
+      share.innerHTML = '<span class="k">' + (c.shareLabel || '기여도') + '</span><span class="gauge" role="img" aria-label="기여도 ' + txt + '"><i style="--lv:' + c.share + '%"></i></span><b>' + txt + '</b>';
+    } else { share.className = 'd-share'; share.innerHTML = ''; }
   }
   function setTeam(list) {
     const el = $('d-team');
@@ -570,6 +594,7 @@
     setText('d-desc', w.desc);
     setTools(w.tools);
     setTeam(w.team);
+    setContrib(w.contrib);
     setText('d-stuck', w.stuck);
     setText('d-solved', w.solved);
     const kw = $('d-keyword');

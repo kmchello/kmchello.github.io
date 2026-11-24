@@ -470,6 +470,39 @@
       role: '판', roleLine: '기초 없이 시작해 막혔던 작업입니다.' },
     typoweb: { title: '타이포웹구현', cat: 'WEB', kind: 'wide', type: '웹 구현',
       contrib: { role: '개인 작업', sub: '처음부터 끝까지 혼자 맡았습니다.', duties: ['전 과정을 혼자 진행'], share: 100 },
+      desc: '프리텐다드와 Inter 두 서체의 이야기와 자간·행간, 크기·무게를 비교하고, 형태와 컬러, 실사 이미지까지 타이포그래피 수업 내용을 웹페이지로 구현한 작업입니다. 각 주제마다 배운 내용을 담은 포스터를 함께 만들었습니다.',
+      tools: [
+        { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
+        { name: 'Photoshop', icon: 'assets/icons/photoshop.svg', level: 85, fill: true }
+      ],
+      team: [{ role: '디자인', names: '김민찬' }],
+      imgs: {
+        list: ['assets/work/typoweb/hero.jpg'],
+        hero: 'assets/work/typoweb/hero.jpg', heroH: 949,
+        // strips: 세로로 긴 웹 화면을 나란히 보여 주는 구역 (값은 이미지 높이 px)
+        groups: [
+          { label: 'PRETENDARD', title: '프리텐다드', strips: 1500,
+            desc: '서체 이야기와 폰트 패밀리, 활용 사례부터 자간·행간, 크기·무게까지 프리텐다드와 Freesentation을 비교했습니다.',
+            items: [
+              { src: 'assets/work/typoweb/s-1.jpg', cap: '서체 이야기', ratio: '543/2000' },
+              { src: 'assets/work/typoweb/s-2.jpg', cap: '자간 · 행간', ratio: '308/2000' },
+              { src: 'assets/work/typoweb/s-3.jpg', cap: '크기 · 무게', ratio: '399/2000' }
+            ] },
+          { label: 'INTER', title: 'INTER', strips: 1500,
+            desc: '서체 이야기와 활용 사례, Letter spacing과 Line height, 크기·무게를 Inter와 Roboto로 비교했습니다.',
+            items: [
+              { src: 'assets/work/typoweb/s-4.jpg', cap: '서체 이야기', ratio: '625/2000' },
+              { src: 'assets/work/typoweb/s-5.jpg', cap: '자간 · 행간', ratio: '301/2000' },
+              { src: 'assets/work/typoweb/s-6.jpg', cap: '크기 · 무게', ratio: '407/2000' }
+            ] },
+          { label: 'SHAPE & COLOR', title: '형태와 컬러', strips: 1500,
+            desc: '형태의 세 가지와 색상의 3속성을 정리하고, 캣타워와 점선면 포스터로 표현했습니다.',
+            items: [{ src: 'assets/work/typoweb/s-7.jpg', cap: '형태와 컬러', ratio: '389/2000' }] },
+          { label: 'REALISTIC IMAGE', title: '실사의 위력', strips: 1500,
+            desc: '한 사람의 분노와 행복을 대비한 실사 포스터 시리즈입니다. 인물 사진은 ChatGPT로 만들었습니다.',
+            items: [{ src: 'assets/work/typoweb/s-8.jpg', cap: '실사의 위력', ratio: '635/2000' }] }
+        ]
+      },
       stuck: '레이아웃 배치부터 막혀 처음에는 진행하지 못했습니다.',
       role: '판', roleLine: '레이아웃 배치부터 막혔던 작업입니다.' },
     kurly: { title: '마켓컬리 리디자인', cat: 'UIUX', kind: 'app', type: '리디자인',
@@ -562,7 +595,15 @@
   const grpIO = 'IntersectionObserver' in window
     ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); grpIO.unobserve(e.target); } }), { root: detail, threshold: 0.06 })
     : null;
+  function stripHTML(s, h) {                                 // 세로로 긴 이미지: 높이를 맞추고 폭은 비율대로
+    return '<figure class="strip"><div class="sshot" style="height:' + h + 'px;aspect-ratio:' + s.ratio + '"><img src="' + s.src + '" alt="' + (s.cap || '') + '" loading="lazy" draggable="false"></div>' +
+      (s.cap ? '<figcaption>' + s.cap + '</figcaption>' : '') + '</figure>';
+  }
   function groupHTML(g) {                                    // 제목이 있는 한 구역 (앱 / 캐릭터 / 웹 / 영상)
+    if (g.strips) {
+      return '<section class="sec grp strips"><div class="g-head"><p class="d-label">' + g.label + '</p><h3 class="g-title">' + g.title + '</h3>' +
+        (g.desc ? '<p class="g-desc">' + g.desc + '</p>' : '') + '</div><div class="g-list">' + g.items.map(it => stripHTML(it, g.strips)).join('') + '</div></section>';
+    }
     return '<section class="sec grp"><div class="g-head"><p class="d-label">' + g.label + '</p><h3 class="g-title">' + g.title + '</h3>' +
       (g.desc ? '<p class="g-desc">' + g.desc + '</p>' : '') + '</div><div class="g-list">' + g.items.map(shotHTML).join('') + '</div></section>';
   }

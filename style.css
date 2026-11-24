@@ -475,3 +475,14 @@ body.detail-open .arrow{display:none}
 .d-share .gauge i{display:block;height:100%;width:0;border-radius:5px;background:var(--acc);transition:width 1.1s cubic-bezier(.2,.7,.2,1) .35s}
 .sec.seen .d-share .gauge i{width:var(--lv)}
 .d-share b{font:800 26px/30px 'Noto Sans KR','Inter',sans-serif;letter-spacing:-.02em;min-width:78px;text-align:right;white-space:nowrap}
+
+/* 세로로 긴 웹 화면을 나란히 보여 주는 구역 (타이포웹구현) */
+.grp.strips{display:grid;grid-template-columns:460px 1fr;column-gap:64px;align-items:start}
+.grp.strips .g-head{margin-bottom:0;position:sticky;top:140px}
+.grp.strips .g-title{font-size:56px;line-height:68px}
+.grp.strips .g-desc{font-size:20px;line-height:32px}
+.grp.strips .g-list{display:flex;flex-wrap:nowrap;column-gap:48px;align-items:flex-start;row-gap:0}
+.strip{margin:0;flex:none}
+.strip .sshot{display:block;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 0 0 1px var(--hair)}
+.strip .sshot img{display:block;width:100%;height:100%;object-fit:contain;user-select:none}
+.strip figcaption{margin-top:18px;font:700 13px/16px 'Inter','Noto Sans KR',sans-serif;letter-spacing:.06em;color:var(--lite)}

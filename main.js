@@ -505,8 +505,41 @@
       },
       stuck: '레이아웃 배치부터 막혀 처음에는 진행하지 못했습니다.',
       role: '판', roleLine: '레이아웃 배치부터 막혔던 작업입니다.' },
-    kurly: { title: '마켓컬리 리디자인', cat: 'UIUX', kind: 'app', type: '리디자인',
+    kurly: { title: '마켓컬리 리디자인', cat: 'UIUX', kind: 'wide', type: '리디자인',
       contrib: { role: '개인 작업', sub: '처음부터 끝까지 혼자 맡았습니다.', duties: ['전 과정을 혼자 진행'], share: 100 },
+      desc: '마켓컬리 앱의 홈과 카테고리 화면을 브랜드 보라색에 맞춰 다시 디자인한 작업입니다. 카테고리 아이콘을 새로 그리고, 상단바와 하단 탭의 아이콘까지 같은 톤으로 맞춘 뒤 프로토타입으로 연결했습니다.',
+      tools: [
+        { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
+        { name: 'Photoshop', icon: 'assets/icons/photoshop.svg', level: 85, fill: true }
+      ],
+      team: [{ role: '디자인', names: '김민찬' }],
+      imgs: {
+        list: ['assets/work/kurly/thumb.jpg'],
+        hero: 'assets/work/kurly/thumb.jpg', heroH: 945,
+        groups: [
+          { label: 'ICON', title: '아이콘 제작',
+            desc: '홈 화면의 카테고리 아이콘 12개를 보라색 두 톤으로 통일해 새로 그렸습니다.',
+            items: [{ src: 'assets/work/kurly/icons.png', cap: '새로 만든 아이콘', ratio: '1753/644' }] },
+          { label: 'HOME', title: '홈 화면 전과 후', strips: 1100,
+            desc: '카테고리 아이콘과 상단바, 하단 탭 아이콘을 같은 톤으로 바꿨습니다.',
+            items: [
+              { src: 'assets/work/kurly/home-before.jpg', cap: 'BEFORE · 원본', ratio: '666/1440' },
+              { src: 'assets/work/kurly/home-after.jpg', cap: 'AFTER · 리디자인', ratio: '1000/2168' }
+            ] },
+          { label: 'CATEGORY', title: '카테고리 전과 후', strips: 1100,
+            desc: '상단 바로가기 아이콘과 하단 탭 아이콘을 홈 화면과 같은 스타일로 맞췄습니다.',
+            items: [
+              { src: 'assets/work/kurly/cat-before.jpg', cap: 'BEFORE · 원본', ratio: '666/1440' },
+              { src: 'assets/work/kurly/cat-after.jpg', cap: 'AFTER · 리디자인', ratio: '1000/2168' }
+            ] },
+          { label: 'MOCKUP', title: '목업', strips: 760,
+            desc: '완성한 화면을 기기 목업에 얹어 확인했습니다.',
+            items: [
+              { src: 'assets/work/kurly/mock-home.jpg', cap: '홈', ratio: '760/1575' },
+              { src: 'assets/work/kurly/mock-cat.jpg', cap: '카테고리', ratio: '1500/1572' }
+            ] }
+        ]
+      },
       stuck: '아이콘 모양에서 태그에 맞는 아이디어가 떠오르지 않았습니다.',
       role: '제자리', roleLine: '아이콘이 놓일 쓰임을 정해야 했던 작업입니다.' },
     rework: { title: 'adidas RE-WORN', cat: 'BRANDING', type: '브랜딩', kind: 'wide',

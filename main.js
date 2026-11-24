@@ -542,37 +542,10 @@
       },
       stuck: '아이콘 모양에서 태그에 맞는 아이디어가 떠오르지 않았습니다.',
       role: '제자리', roleLine: '아이콘이 놓일 쓰임을 정해야 했던 작업입니다.' },
-    hellow: { title: 'HELLOW', cat: 'APP, UIUX', type: '인터랙션 디자인 · 홈 어플라이언스 앱', kind: 'wide',
-      contrib: { role: '개인 작업', sub: '컨셉부터 앱 화면까지 혼자 맡았습니다.',
-        duties: ['서비스 기획과 디자인 컨셉', '컬러 · 타이포그래피 · 비주얼 스타일', '와이어프레임', '앱 UI 디자인과 음성 인터랙션'], share: 100 },
-      desc: '“이동 없이, 손끝으로 완성하는 나의 공간.” 조명과 에어컨, 커튼 같은 집 안 기기를 말 한마디로 제어하는 홈 어플라이언스 앱입니다. 인사하듯 말을 걸면 공간이 부드럽게 바뀐다는 뜻으로 이름을 HELLOW라고 지었고, 디자인 컨셉과 와이어프레임을 거쳐 음성 UI 중심의 앱 화면까지 디자인했습니다.',
-      tools: [
-        { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
-        { name: 'Claude', icon: 'assets/icons/claude.svg', level: 80 }
-      ],
-      team: [{ role: '디자인', names: '김민찬' }],
+    hellow: { title: 'HELLOW', cat: 'APP, UIUX', type: '인터랙션 디자인', kind: 'wide',
       imgs: {
-        list: ['assets/work/hellow/thumb.jpg'],
-        hero: 'assets/work/hellow/thumb.jpg', heroH: 945,
-        groups: [
-          { label: 'CONCEPT', title: '디자인 컨셉', desc: '서비스 컨셉과 디자인 키워드, 컬러와 타이포그래피, 비주얼 스타일을 정리했습니다.',
-            items: [
-              { src: 'assets/work/hellow/c-1.jpg', cap: '서비스 컨셉', ratio: '16/9' },
-              { src: 'assets/work/hellow/c-2.jpg', cap: '디자인 키워드와 컨셉', ratio: '16/9' },
-              { src: 'assets/work/hellow/c-3.jpg', cap: '컬러와 타이포그래피', ratio: '16/9' },
-              { src: 'assets/work/hellow/c-4.jpg', cap: '비주얼 스타일', ratio: '16/9' }
-            ] },
-          { label: 'WIREFRAME', title: '와이어프레임', desc: '스플래시와 온보딩, 보이스 소개에서 홈, 보이스, 씬까지의 흐름을 먼저 그렸습니다.',
-            items: [
-              { src: 'assets/work/hellow/wf-1.jpg', cap: '스플래시 · 온보딩 · 보이스 소개 · 홈', ratio: '1752/970' },
-              { src: 'assets/work/hellow/wf-2.jpg', cap: '보이스 · 보이스 결과 · 씬', ratio: '1752/970' }
-            ] },
-          { label: 'APP', title: '앱 디자인', desc: '말 한마디로 제어하는 보이스 화면을 중심으로 홈, 씬, 거실, 조명, 에어컨, 커튼, 설정 화면을 디자인했습니다.',
-            items: [
-              { src: 'assets/work/hellow/ui-1.jpg', cap: '홈 · 보이스 · 보이스 결과 · 씬 · 거실', ratio: '2170/970' },
-              { src: 'assets/work/hellow/ui-2.jpg', cap: '조명 · 에어컨 · 커튼 · 설정', ratio: '2170/970' }
-            ] }
-        ]
+        list: ['assets/work/hellow/cover.jpg'],
+        hero: 'assets/work/hellow/cover.jpg', heroH: 1052
       } }
   };
   const ORDER = Object.keys(WORKS);

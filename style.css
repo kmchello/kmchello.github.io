@@ -239,11 +239,10 @@ button{font:inherit;color:inherit;cursor:pointer}
   padding:0 calc(60px*var(--s))}
 .brand{font:700 max(12px,calc(20px*var(--s)))/1 'Inter',sans-serif;letter-spacing:.06em}
 .nav nav{display:flex;gap:calc(44px*var(--s))}
-.nav nav a{position:relative;display:inline-flex;flex-direction:column;align-items:center;font:400 max(10px,calc(16px*var(--s)))/1 'Inter',sans-serif;letter-spacing:.1em;color:#9a9a9a;padding:calc(10px*var(--s)) 0;transition:color .2s}
+.nav nav a{position:relative;display:inline-flex;flex-direction:column;align-items:center;font:300 max(10px,calc(16px*var(--s)))/1 'Inter',sans-serif;letter-spacing:.1em;color:#8f8f8f;padding:calc(10px*var(--s)) 0;transition:color .2s}
 .nav nav a::after{content:attr(data-t);display:block;height:0;overflow:hidden;visibility:hidden;font-weight:900;pointer-events:none}
 .nav nav a:hover{color:var(--ink)}
 .nav nav a.active{font-weight:900;color:var(--ink)}
-.nav nav a.active::before{content:'';position:absolute;left:0;right:0;bottom:calc(-1px*var(--s));height:max(2px,calc(3px*var(--s)));background:var(--acc);border-radius:2px}
 
 .arrow{position:fixed;top:50%;z-index:20;width:calc(56px*var(--s));height:calc(56px*var(--s));margin-top:calc(-28px*var(--s));
   border:1px solid var(--mid);border-radius:50%;background:#fff;font:500 calc(26px*var(--s))/1 'Inter',sans-serif;

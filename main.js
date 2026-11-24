@@ -438,6 +438,11 @@
       },
       stuck: '기획이 바뀌어 막바지에 전부 다시 만들었습니다. 어울리지 않는 색을 감으로 더하다 화면이 어수선해지기도 했습니다.',
       role: '걸고 빼기', roleLine: '기획이 바뀌어 통째로 엎었던 작업입니다.' },
+    hellow: { title: 'HELLOW', cat: 'APP, UIUX', type: '인터랙션 디자인', kind: 'wide',
+      imgs: {
+        list: ['assets/work/hellow/cover.jpg'],
+        hero: 'assets/work/hellow/cover.jpg', heroH: 1052
+      } },
     soomgo: { title: '숨고 리디자인', cat: 'UIUX', kind: 'wide', type: '리디자인',
       desc: '전문가 매칭 플랫폼 숨고의 UI를 다시 디자인한 작업입니다. 아이콘 색상을 통일하고 광고 배너를 더했으며, 커뮤니티 카드와 페이지 구성을 단순하게 정리해 접근성을 높였습니다.',
       tools: [
@@ -541,12 +546,7 @@
         ]
       },
       stuck: '아이콘 모양에서 태그에 맞는 아이디어가 떠오르지 않았습니다.',
-      role: '제자리', roleLine: '아이콘이 놓일 쓰임을 정해야 했던 작업입니다.' },
-    hellow: { title: 'HELLOW', cat: 'APP, UIUX', type: '인터랙션 디자인', kind: 'wide',
-      imgs: {
-        list: ['assets/work/hellow/cover.jpg'],
-        hero: 'assets/work/hellow/cover.jpg', heroH: 1052
-      } }
+      role: '제자리', roleLine: '아이콘이 놓일 쓰임을 정해야 했던 작업입니다.' }
   };
   const ORDER = Object.keys(WORKS);
   const $ = id => document.getElementById(id);

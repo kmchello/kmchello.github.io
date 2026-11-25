@@ -397,7 +397,7 @@
     tensec: { title: '10초', cat: 'UIUX', kind: 'wide', type: '조기퇴직 해결 앱',
       contrib: { role: '앱 디자인 · 기획 일부', sub: '앱 디자인과 디자인 시스템 전체를 맡고, 기획에도 참여했습니다.',
         duties: ['앱 디자인', '기획 일부 담당', '앱 로고', '디자인 시스템 전체'], share: 35, shareText: '약 30~40%' },
-      desc: '현대 가족의 대화 부족과 중장년층의 조기 퇴직 문제를 함께 해결하는 앱 서비스입니다. 하루 10초씩 가족에게 영상 편지를 보내며 소통을 이어 가고, 적성검사와 취미 탐색, AI 추천으로 나에게 맞는 일과 취미를 찾도록 돕습니다.',
+      desc: '현대 가족의 대화 부족과 중장년층의 조기 퇴직 문제를 함께 해결하는 앱 서비스입니다. 하루 10초씩 가족에게 영상 편지를 보내며 소통을 이어 가고, 적성검사와 취미 탐색으로 나에게 맞는 일과 취미를 찾도록 돕습니다.',
       tools: [
         { name: 'Figma', icon: 'assets/icons/figma.svg', level: 100 },
         { name: 'Photoshop', icon: 'assets/icons/photoshop.svg', level: 85, fill: true }
@@ -435,7 +435,7 @@
               { src: 'assets/work/tensec/app-7.jpg', cap: '하루 편지 읽기 · 하루 메모' },
               { src: 'assets/work/tensec/app-8.jpg', cap: '적성검사 설문 (22문항 중 5문항)' },
               { src: 'assets/work/tensec/app-9.jpg', cap: '적성검사 결과 · 마이페이지' },
-              { src: 'assets/work/tensec/app-10.jpg', cap: '취미 탐색 · AI 추천' }
+              { src: 'assets/work/tensec/app-10.jpg', cap: '취미 탐색' }
             ] }
         ]
       },

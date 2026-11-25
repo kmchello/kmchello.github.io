@@ -696,6 +696,7 @@
     stopHang(detail);
     detail.classList.remove('in');
     detail.scrollTop = 0;
+    $('d-top').classList.remove('show');
     detailSecs.forEach(s => s.classList.remove('seen'));
     detailOpen = true;
     document.body.classList.add('detail-open');
@@ -726,7 +727,10 @@
     el.addEventListener('click', () => openDetail(el.dataset.work, true));
     el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDetail(el.dataset.work, true); } });
   });
-  detail.querySelector('.back').addEventListener('click', e => { e.preventDefault(); closeDetail(true); });
+  const dBack = $('d-back'), dTop = $('d-top');
+  dBack.addEventListener('click', e => { e.preventDefault(); closeDetail(true); });
+  dTop.addEventListener('click', () => detail.scrollTo({ top: 0, behavior: 'smooth' }));
+  detail.addEventListener('scroll', () => dTop.classList.toggle('show', detail.scrollTop > 500), { passive: true });
   addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(true); });
   // 뒤로 가기 / 앞으로 가기 / 주소 직접 입력
   function syncFromHash() {

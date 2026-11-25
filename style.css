@@ -486,3 +486,18 @@ body.detail-open .arrow{display:none}
 .strip .sshot{display:block;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 0 0 1px var(--hair)}
 .strip .sshot img{display:block;width:100%;height:100%;object-fit:contain;user-select:none}
 .strip figcaption{margin-top:18px;font:700 13px/16px 'Inter','Noto Sans KR',sans-serif;letter-spacing:.06em;color:var(--lite)}
+
+/* 작업 상세: 뒤로 가기(<)와 맨 위로 버튼 — 스크롤해도 화면에 고정 */
+.d-back,.d-top{display:none;position:fixed;z-index:21;width:calc(56px*var(--s));height:calc(56px*var(--s));min-width:40px;min-height:40px;
+  border:1px solid var(--mid);border-radius:50%;background:#fff;color:var(--ink);align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s,color .2s,opacity .25s,transform .25s}
+.d-back:hover,.d-top:hover{background:var(--ink);color:#fff}
+.d-back{left:calc(62px*var(--s));top:calc(100px*var(--s))}
+.d-back::before,.d-top::before{content:'';width:calc(10px*var(--s));height:calc(10px*var(--s));min-width:7px;min-height:7px;border:solid currentColor;border-width:1.5px 1.5px 0 0}
+.d-back::before{transform:translateX(12%) rotate(-135deg)}
+.d-top{right:calc(62px*var(--s));bottom:calc(48px*var(--s));opacity:0;pointer-events:none;transform:translateY(8px)}
+.d-top::before{transform:translateY(12%) rotate(-45deg)}
+body.detail-open .d-back{display:flex}
+body.detail-open .d-top{display:flex}
+body.detail-open .d-top.show{opacity:1;pointer-events:auto;transform:none}
+.dstage{padding-top:190px}
